@@ -17,31 +17,31 @@
 
 This repository contains the training, validation, and evaluation scripts for benchmarking lightweight object detection models (YOLO11n and YOLOv5n) designed for academic integrity monitoring. 
 
-[cite_start]The primary objective of this codebase is to systematically stress-test both architectures to define their **Operational Failure Point (OFP)**[cite: 511]. [cite_start]By simulating challenging real-world edge cases commonly found in unsupervised webcam feeds, this framework evaluates how well the models maintain detection reliability and localization precision[cite: 512, 513].
+The primary objective of this codebase is to systematically stress-test both architectures to define their **Operational Failure Point (OFP)**. By simulating challenging real-world edge cases commonly found in unsupervised webcam feeds, this framework evaluates how well the models maintain detection reliability and localization precision.
 
 ## Key Features
 
-* [cite_start]**Comparative Benchmarking:** Head-to-head evaluation of YOLOv5n (baseline) and YOLO11n architectures[cite: 343].
-* [cite_start]**Deterministic Stress Testing:** Implements the "Triple Threat" degradation matrix, applying sequential visual corruption to test sets[cite: 350, 492].
-* [cite_start]**Granular Metrics Tracking:** Evaluates primary accuracy (`mAP@0.5`) against strict spatial localization (`mAP@0.5-0.95`)[cite: 371].
-* [cite_start]**Edge-Deployment Focus:** Optimized for "Nano" class models suitable for low-latency browser or client-side inference[cite: 453].
+* **Comparative Benchmarking:** Head-to-head evaluation of YOLOv5n (baseline) and YOLO11n architectures.
+* **Deterministic Stress Testing:** Implements the "Triple Threat" degradation matrix, applying sequential visual corruption to test sets.
+* **Granular Metrics Tracking:** Evaluates primary accuracy (`mAP@0.5`) against strict spatial localization (`mAP@0.5-0.95`).
+* **Edge-Deployment Focus:** Optimized for "Nano" class models suitable for low-latency browser or client-side inference.
 
 ## The "Triple Threat" Evaluation Matrix
 
 The evaluation scripts in this repository test the models against isolated and compounded environmental stressors:
-1. [cite_start]**Gaussian Blur:** Simulating motion blur and poor hardware focus[cite: 345].
-2. [cite_start]**Illumination Variance:** Testing extreme underexposure and overexposure[cite: 346, 476, 478].
-3. [cite_start]**Synthetic Occlusion:** Mimicking physical obstruction (30%–60% coverage) of prohibited items (Mobile Phones, Books, Calculators)[cite: 347, 482].
+1. **Gaussian Blur:** Simulating motion blur and poor hardware focus.
+2. **Illumination Variance:** Testing extreme underexposure and overexposure.
+3. **Synthetic Occlusion:** Mimicking physical obstruction (30%–60% coverage) of prohibited items (Mobile Phones, Books, Calculators).
 
 ## Usage Guide (Google Colab)
 
-[cite_start]This project is optimized for execution in Google Colab to leverage cloud-based GPU acceleration[cite: 1321].
+This project is optimized for execution in Google Colab to leverage cloud-based GPU acceleration.
 
 ### 1. Training the Models
 To reproduce the fine-tuning process on the custom proctoring dataset:
 * Download the `yolo11n.ipynb` and `yolov5n.ipynb` notebooks from this repository.
 * Upload them to Google Colab.
-* [cite_start]Run the cells sequentially to initialize the dataset, apply augmentations, and execute the 200-epoch training pipeline[cite: 460].
+* Run the cells sequentially to initialize the dataset, apply augmentations, and execute the 200-epoch training pipeline.
 
 ### 2. Testing and Evaluation
 To execute the quantitative robustness audit:
@@ -51,7 +51,9 @@ To execute the quantitative robustness audit:
 
 ## Associated Dataset
 
-[cite_start]The models evaluated in this repository were fine-tuned using the `Proctoring-Robustness-Audit-Dataset`, a hybrid collection of primary 720p webcam captures and open-source data subjected to combinatorial exponential augmentation (totaling 45,000 training images)[cite: 429, 434].
+The models evaluated in this repository were fine-tuned using the `Proctoring-Robustness-Audit-Dataset`, a hybrid collection of primary 720p webcam captures and open-source data subjected to combinatorial exponential augmentation (totaling 45,000 training images).
+
+**Dataset Link:** [Automated Proctoring Object Detection on Kaggle](https://www.kaggle.com/datasets/kirisu/automated-proctoring-object-detection)
 
 ## Citation
 
