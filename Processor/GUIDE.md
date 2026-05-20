@@ -1,6 +1,31 @@
-# YOLOv11 Robustness Testing & Dataset Augmentation Pipeline
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║     🚀 YOLOv11 ROBUSTNESS TESTING & DATASET AUGMENTATION PIPELINE 🚀        ║
+║                                                                              ║
+║                  🎯 Thesis Project - Computer Vision                        ║
+║              Stress-Testing Object Detection Models                         ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+```
 
-A comprehensive Python toolkit for testing YOLOv11 object detection model robustness through systematic data augmentation. This project generates stress-test datasets with various environmental challenges (darkness, blur, occlusion) to evaluate model performance under real-world conditions.
+> **A comprehensive Python toolkit for testing object detection model robustness through systematic data augmentation.**  
+> This project generates stress-test datasets with various environmental challenges (darkness, blur, occlusion) to evaluate model performance under real-world conditions.
+
+---
+
+### 🎬 Quick Features Overview
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| 🔄 **Automated Pipeline** | One-command processing (`head.py`) | ✅ Ready |
+| 🌫️ **Multi-Effect Augmentation** | Blur, brightness, occlusion, compound | ✅ 12+ variants |
+| 📊 **Comprehensive Testing** | Robustness evaluation metrics | ✅ mAP, precision, recall |
+| 🎨 **Visualization Tools** | Comic strips, step-by-step images | ✅ Publication-ready |
+| ⚙️ **Flexible Configuration** | Customize every augmentation | ✅ Easy tweaking |
+| 🔍 **Data Integrity** | Orphan file detection & cleanup | ✅ Built-in validation |
+
+---
 
 ---
 
@@ -18,7 +43,7 @@ The toolkit provides automated pipelines to split datasets, apply augmentations,
 
 ## Repository Structure
 
-### Core Pipeline Scripts
+### 📊 Core Pipeline Scripts
 
 - **`head.py`** - Master orchestrator
   - Processes multi-class datasets organized by category (book, phone, calculator, etc.)
@@ -39,7 +64,7 @@ The toolkit provides automated pipelines to split datasets, apply augmentations,
 
 ---
 
-### Single Augmentation Scripts
+### 🎨 Single Augmentation Scripts
 
 #### Blur Effects
 - **`blur.py`** - Gaussian blur augmentation
@@ -74,7 +99,7 @@ The toolkit provides automated pipelines to split datasets, apply augmentations,
 
 ---
 
-### Compound Augmentation Scripts
+### 🔥 Compound Augmentation Scripts
 
 These scripts apply multiple effects in sequence for stress testing:
 
@@ -114,7 +139,7 @@ These scripts apply multiple effects in sequence for stress testing:
 
 ---
 
-### Evaluation & Analysis Scripts
+### 📈 Evaluation & Analysis Scripts
 
 - **`analyze.py`** - Model validation analyzer
   - Loads trained YOLOv11 model
@@ -134,22 +159,12 @@ These scripts apply multiple effects in sequence for stress testing:
 
 ---
 
-### Visualization
+### 🎭 Visualization
 
 - **`comic-strip.py`** - Visual pipeline generator
   - Creates a composite "comic strip" image showing 4 augmentation stages
   - Useful for thesis figures and presentations
   - Reads from step-by-step-augmentation folder output
-
----
-
-### Jupyter Notebooks
-
-- **`yolov11n.ipynb`** - YOLOv11 Nano experiments
-  - Model training, evaluation, and testing workflows
-
-- **`yolov5n.ipynb`** - YOLOv5 Nano experiments
-  - Comparison baseline experiments
 
 ---
 
@@ -361,16 +376,10 @@ pip install Pillow ultralytics opencv-python torch torchvision
 
 ## Model Setup
 
-### Training
-Use the Jupyter notebooks to train YOLOv11 on your augmented dataset:
-```bash
-jupyter notebook yolov11n.ipynb
-```
-
 ### Inference
 Point the model path in `test.py` and `analyze.py`:
 ```python
-MODEL_PATH = './yolov11_training_results/weights/best.pt'
+MODEL_PATH = './path/to/your/trained/model/weights/best.pt'
 ```
 
 ---
@@ -388,8 +397,8 @@ If you want to automate everything with the master pipeline:
 # Step 2: Run master pipeline (handles everything)
 python head.py
 
-# Step 3: Train model
-jupyter notebook yolov11n.ipynb
+# Step 3: Train your model (using your chosen framework)
+# Note: See your model training setup for YOLOv11 training instructions
 
 # Step 4: Generate stress-test datasets
 python test_blur.py
@@ -424,8 +433,8 @@ python occlusion.py    # Adds occlusion to all images (building on previous augm
 # Step 3: (Optional) Verify dataset integrity
 python match.py
 
-# Step 4: Train your model
-jupyter notebook yolov11n.ipynb
+# Step 4: Train your model (using your chosen framework)
+# Note: See your model training setup for YOLOv11 training instructions
 
 # Step 5: Generate independent test variants (can run in any order)
 python test_blur.py                  # Original test set + blur
@@ -447,7 +456,7 @@ python analyze.py                    # Run multiple times with different test fo
 
 ---
 
-### **Pre-Execution Checklist**
+### 📋 **Pre-Execution Checklist**
 
 Before running any scripts, ensure:
 
@@ -472,7 +481,7 @@ Before running any scripts, ensure:
 
 ---
 
-### **Script Dependency & Execution Order**
+### 🎯 **Script Dependency & Execution Order**
 
 ```
 PHASE 1: PREPARATION
@@ -511,7 +520,7 @@ PHASE 6: MERGING (Optional - if combining multiple datasets)
 
 ---
 
-### **Common Workflows**
+### 🔄 **Common Workflows**
 
 #### **Workflow A: Full Thesis Evaluation** *(Recommended)*
 ```bash
@@ -519,8 +528,8 @@ PHASE 6: MERGING (Optional - if combining multiple datasets)
 python match.py                     # Check data integrity
 python head.py                      # Orchestrate split + augmentations
 
-# 2. Train
-jupyter notebook yolov11n.ipynb     # Train model on augmented data
+# 2. Train your model (using your chosen framework)
+# Note: See your model training setup for training instructions
 
 # 3. Test robustness on all variants
 for file in test_*.py blur_*.py brightness_*.py dark_*.py; do
@@ -540,8 +549,8 @@ python merge.py
 # 1. Quick split
 python split.py
 
-# 2. Train
-jupyter notebook yolov11n.ipynb
+# 2. Train your model (using your chosen framework)
+# Note: See your model training setup for training instructions
 
 # 3. Quick evaluation
 python test_blur.py
@@ -557,8 +566,8 @@ python split.py
 python brightness.py       # If you only want brightness variations
 # Skip blur.py and occlusion.py if not needed
 
-# 3. Train
-jupyter notebook yolov11n.ipynb
+# 3. Train your model (using your chosen framework)
+# Note: See your model training setup for training instructions
 
 # 4. Test specific scenarios
 python test_brightness.py
@@ -581,7 +590,7 @@ python test.py                      # Run live inference
 
 ---
 
-### **Configuration Before Running**
+### ⚙️ **Configuration Before Running**
 
 Edit these settings in the respective script files:
 
@@ -617,7 +626,7 @@ MODEL_PATH = './yolov11_training_results/weights/best.pt'  # Point to your train
 
 ---
 
-### **Expected Execution Times**
+### ⏱️ **Expected Execution Times**
 
 | Script | Input Size | Typical Time | Notes |
 |--------|-----------|-------------|-------|
@@ -628,11 +637,11 @@ MODEL_PATH = './yolov11_training_results/weights/best.pt'  # Point to your train
 | `head.py` | Full pipeline | ~10-20 min | Runs all phases sequentially |
 | `test_*.py` | 150 test images | ~10-30 sec | Generates one variant |
 | `analyze.py` | 150 images + model | ~2-5 min | Validation with metrics |
-| `yolov11n.ipynb` | Augmented dataset | 30-120 min | GPU-dependent; can be hours |
+| Model training | Augmented dataset | 30-120+ min | GPU-dependent; depends on framework |
 
 ---
 
-### **Troubleshooting Execution Issues**
+### 🐛 **Troubleshooting Execution Issues**
 
 | Problem | Cause | Solution |
 |---------|-------|----------|
@@ -646,7 +655,7 @@ MODEL_PATH = './yolov11_training_results/weights/best.pt'  # Point to your train
 
 ---
 
-### **Monitoring Progress**
+### 📊 **Monitoring Progress**
 
 All scripts print progress indicators:
 ```
@@ -668,7 +677,7 @@ Progress: |████████████--------| 75.0%
 1. **Prepare raw data** → Organize into `book/`, `phone/`, `calculator/` folders
 2. **Run pipeline** → Execute `python head.py` (automated) OR follow manual steps
 3. **Check data** → Run `python match.py` to verify no orphan files
-4. **Train model** → Use `yolov11n.ipynb` with augmented training data
+4. **Train model** → Use your chosen framework to train on augmented training data
 5. **Generate test sets** → Run all `test_*.py` and compound augmentation scripts
 6. **Evaluate robustness** → Run `python analyze.py` on each test variant
 7. **Visualize results** → `python comic-strip.py` and `apply_triple_threat.py` for thesis figures
@@ -717,7 +726,7 @@ The `analyze.py` script reports:
 
 ## Author Notes
 
-This toolkit was developed for an undergraduate CS thesis focused on evaluating YOLOv11 robustness under environmental stress. It provides a systematic way to:
+This toolkit was developed for an undergraduate CS thesis focused on evaluating object detection model robustness under environmental stress. It provides a systematic way to:
 - Generate reproducible stress-test datasets
 - Isolate individual failure modes (blur, darkness, occlusion)
 - Measure performance degradation quantitatively
